@@ -66,6 +66,6 @@ A **React + Vite** project demonstrating a modern admin dashboard with the follo
 
 ```bash
 git clone https://github.com/PravinSliet123/juspay-ui-assesment.git
-cd admin-dashboard
+cd juspay-ui-assesment
 npm install
 npm run dev
