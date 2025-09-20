@@ -1,4 +1,5 @@
-<img width="1913" height="928" alt="image" src="https://github.com/user-attachments/assets/b6c1dc8e-94d7-44b6-8add-57cc55e749b4" /># Admin Dashboard & Notification Sidebar Project
+<img width="1918" height="933" alt="image" src="https://github.com/user-attachments/assets/f4590d7c-70c7-4ccb-9920-a8a70a2b8081" />
+# Admin Dashboard & Notification Sidebar Project
 
 A **React + Vite** project demonstrating a modern admin dashboard with the following features:
 
