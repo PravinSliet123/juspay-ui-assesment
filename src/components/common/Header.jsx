@@ -19,6 +19,8 @@ export default function Header({ open, setOpen }) {
   return (
     <nav className="sticky top-0 z-10 flex items-center justify-between w-full border-b px-4 h-14 bg-background">
       {/* Left Section - Breadcrumb (desktop only) */}
+                {/* Sidebar Trigger for mobile */}
+          <SidebarTrigger className="cursor-pointer md:hidden" />
       <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
         <SidebarTrigger className="cursor-pointer" />
         <Star size={20} fill="#1C1C1C1A" className="cursor-pointer" />
@@ -75,8 +77,7 @@ export default function Header({ open, setOpen }) {
             className="cursor-pointer"
           />
 
-          {/* Sidebar Trigger for mobile */}
-          <SidebarTrigger className="cursor-pointer md:hidden" />
+
         </div>
       </div>
     </nav>
