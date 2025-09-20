@@ -138,8 +138,8 @@ export default function ShadcnDashboard() {
 
           {/* Right projection chart */}
           <div className="lg:col-span-6 h-full">
-            <Card className="rounded-2xl w-[100%] shadow-sm overflow-hidden h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] ">
-              <CardHeader clas>
+            <Card className="rounded-2xl w-full shadow-sm overflow-hidden h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] ">
+              <CardHeader>
                 <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0%]">
                   Projections vs Actuals
                 </CardTitle>
@@ -249,7 +249,7 @@ export default function ShadcnDashboard() {
         <div className="flex flex-col lg:flex-row lg:gap-6 w-full">
           {/* Left - Revenue Chart */}
           <div className="lg:flex-[2] flex mb-6 lg:mb-0">
-            <Card className="rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] flex flex-col flex-1">
+            <Card className="rounded-2xl w-full shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] flex flex-col flex-1">
               <CardHeader className="pb-0 px-4 sm:px-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                   <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
