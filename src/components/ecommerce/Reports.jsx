@@ -244,7 +244,7 @@ export default function ShadcnDashboard() {
           {/* Left - Revenue Chart */}
           <div className="flex-[2] flex h-full">
             <Card className="rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] flex flex-col flex-1">
-              <CardHeader className="pb-0 pt-6 px-4 sm:px-6">
+              <CardHeader className="pb-0 px-4 sm:px-6">
                 <div className="flex items-center gap-6">
                   <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
                     Revenue
