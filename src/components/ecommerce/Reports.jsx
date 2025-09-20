@@ -18,7 +18,6 @@ import {
 } from "recharts";
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
-import RevenueByLocationCard from "./RevenueByLocationCard";
 import TopSellingProducts from "./TopSellingProducts";
 import { useTheme } from "../../config/theme-provider";
 
@@ -32,6 +31,13 @@ const chartData = [
   { month: "May", desktop: 220, mobile: 210 },
   { month: "June", desktop: 250, mobile: 230 },
 ];
+const revenueData = [
+  { city: "New York", value: 72000 },
+  { city: "San Francisco", value: 39000 },
+  { city: "Sydney", value: 25000 },
+  { city: "Singapore", value: 61000 },
+];
+const maxValue = Math.max(...revenueData.map((d) => d.value));
 
 const chartConfig = {
   desktop: {
@@ -132,13 +138,13 @@ export default function ShadcnDashboard() {
 
           {/* Right projection chart */}
           <div className="lg:col-span-6 h-full">
-            <Card className="rounded-2xl shadow-sm overflow-hidden h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] ">
-              <CardHeader>
+            <Card className="rounded-2xl w-[100%] shadow-sm overflow-hidden h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] ">
+              <CardHeader clas>
                 <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0%]">
                   Projections vs Actuals
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-6 h-full">
+              <CardContent className="p-6 h-full w-full">
                 <div className="h-full">
                   <ChartContainer className={`h-full`} config={chartConfig}>
                     <BarChart
@@ -240,16 +246,16 @@ export default function ShadcnDashboard() {
         </div>
 
         {/* Larger revenue chart */}
-        <div className="lg:flex lg:gap-6 h-full">
+        <div className="flex flex-col lg:flex-row lg:gap-6 w-full">
           {/* Left - Revenue Chart */}
-          <div className="flex-[2] flex h-full">
+          <div className="lg:flex-[2] flex mb-6 lg:mb-0">
             <Card className="rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] flex flex-col flex-1">
               <CardHeader className="pb-0 px-4 sm:px-6">
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                   <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
                     Revenue
                   </CardTitle>
-                  <div className="mt-1 flex flex-wrap gap-4">
+                  <div className="flex flex-wrap gap-4">
                     <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
                       <span className="text-[#1C1C1C] dark:text-[#C6C7F8]">
                         ●
@@ -272,8 +278,8 @@ export default function ShadcnDashboard() {
                 </div>
               </CardHeader>
 
-              <CardContent className="p-0 flex-1 h-full">
-                <div className="h-full w-full p-4 sm:p-6">
+              <CardContent className="p-0 flex-1">
+                <div className="h-64 sm:h-72 md:h-80 lg:h-full w-full p-4 sm:p-6">
                   <ChartContainer
                     className="h-full w-full"
                     config={chartConfig}
@@ -329,8 +335,44 @@ export default function ShadcnDashboard() {
           </div>
 
           {/* Right - Revenue By Location */}
-          <div className="flex-[1] flex h-full">
-            <RevenueByLocationCard className="flex-1" />
+          <div className="lg:flex-[1] flex">
+            <div className="rounded-2xl shadow-sm h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] p-6 flex flex-col w-full">
+              <h2 className="text-lg font-semibold mb-4">
+                Revenue by Location
+              </h2>
+
+              {/* Map Section */}
+              <div className="relative w-full h-40 sm:h-52 md:h-64 lg:h-48 mb-4">
+                <img
+                  src={"/images/WorldMap.png"}
+                  alt="World Map"
+                  className="w-full h-full object-contain rounded"
+                />
+                {/* Dots */}
+                <span className="absolute w-3 h-3 bg-black rounded-full top-[25%] left-[20%]"></span>
+                <span className="absolute w-3 h-3 bg-black rounded-full top-[30%] left-[40%]"></span>
+                <span className="absolute w-3 h-3 bg-black rounded-full top-[55%] left-[75%]"></span>
+                <span className="absolute w-3 h-3 bg-black rounded-full top-[60%] left-[85%]"></span>
+              </div>
+
+              {/* Revenue bars */}
+              <div className="space-y-4 flex-1">
+                {revenueData.map((item) => (
+                  <div key={item.city}>
+                    <div className="flex justify-between font-sans font-normal text-[12px] leading-[18px] tracking-[0%] mb-1">
+                      <span>{item.city}</span>
+                      <span>{Math.round(item.value / 1000)}K</span>
+                    </div>
+                    <div className="h-1 w-full bg-white rounded-full">
+                      <div
+                        className="h-1 bg-[#A8C5DA] rounded-full"
+                        style={{ width: `${(item.value / maxValue) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

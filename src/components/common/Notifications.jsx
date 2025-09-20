@@ -11,13 +11,32 @@ export default function NotificationSidebar({ open, setOpen }) {
   const [notifications, setNotifications] = useState([
     { id: 1, text: "You have a bug that needs fixing...", time: "Just now" },
     { id: 2, text: "New user registered", time: "59 minutes ago" },
-    { id: 3, text: "You have a bug that needs fixing...", time: "12 hours ago" },
+    {
+      id: 3,
+      text: "You have a bug that needs fixing...",
+      time: "12 hours ago",
+    },
   ]);
 
   const [activities, setActivities] = useState([
-    { id: 1, name: "Natali Craig", text: "You have a bug that needs fixing...", time: "Just now" },
-    { id: 2, name: "Drew Cano", text: "Released a new version", time: "59 minutes ago" },
-    { id: 3, name: "Orlando Diggs", text: "Submitted a bug", time: "12 hours ago" },
+    {
+      id: 1,
+      name: "Natali Craig",
+      text: "You have a bug that needs fixing...",
+      time: "Just now",
+    },
+    {
+      id: 2,
+      name: "Drew Cano",
+      text: "Released a new version",
+      time: "59 minutes ago",
+    },
+    {
+      id: 3,
+      name: "Orlando Diggs",
+      text: "Submitted a bug",
+      time: "12 hours ago",
+    },
   ]);
 
   const contacts = ["Natali Craig", "Drew Cano", "Orlando Diggs", "Andi Lane"];
@@ -37,7 +56,7 @@ export default function NotificationSidebar({ open, setOpen }) {
   };
 
   return (
-    <div>
+    <div className="relative z-50">
       <AnimatePresence>
         {open && (
           <motion.div

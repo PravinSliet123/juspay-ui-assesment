@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Bell, Clock, LayoutGrid, RotateCw, Star, Sun } from "lucide-react";
+import { Bell, RotateCw, Star, Sun } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "../ui/sidebar";
 import { useTheme } from "../../config/theme-provider";
@@ -12,15 +12,14 @@ export default function Header({ open, setOpen }) {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    // API call (simulate 2s delay)
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setRefreshing(false);
   };
 
   return (
-    <nav className="flex items-center justify-between w-full border-b px-4 h-14 bg-background">
-      {/* Left Section - Breadcrumb */}
-      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+    <nav className="sticky top-0 z-10 flex items-center justify-between w-full border-b px-4 h-14 bg-background">
+      {/* Left Section - Breadcrumb (desktop only) */}
+      <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
         <SidebarTrigger className="cursor-pointer" />
         <Star size={20} fill="#1C1C1C1A" className="cursor-pointer" />
         <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal">
@@ -33,9 +32,9 @@ export default function Header({ open, setOpen }) {
       </div>
 
       {/* Right Section - Search + Icons */}
-      <div className="flex items-center gap-4">
-        {/* Search */}
-        <div className="relative">
+      <div className="flex items-center gap-3 md:gap-4">
+        {/* Search (hidden on mobile, visible on md+) */}
+        <div className="hidden md:block relative">
           <Input
             type="text"
             placeholder="Search"
@@ -47,7 +46,7 @@ export default function Header({ open, setOpen }) {
         </div>
 
         {/* Icons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           {/* Theme Toggle */}
           <Sun
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -57,7 +56,7 @@ export default function Header({ open, setOpen }) {
             } transition-all duration-500`}
           />
 
-          {/* Refresh Icon */}
+          {/* Refresh */}
           <RotateCw
             onClick={handleRefresh}
             size={20}
@@ -66,6 +65,7 @@ export default function Header({ open, setOpen }) {
             }`}
           />
 
+          {/* Notifications */}
           <Bell
             onClick={(e) => {
               e.stopPropagation();
@@ -75,7 +75,8 @@ export default function Header({ open, setOpen }) {
             className="cursor-pointer"
           />
 
-          <SidebarTrigger className="cursor-pointer" />
+          {/* Sidebar Trigger for mobile */}
+          <SidebarTrigger className="cursor-pointer md:hidden" />
         </div>
       </div>
     </nav>
