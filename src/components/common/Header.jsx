@@ -36,7 +36,15 @@ export default function Header({ open, setOpen }) {
           </div>
         </Magnetic>
         <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal dark:text-[#FFFFFF66] text-[#1C1C1C66] ">
-          Dashboards   {pathname==="/"?"/ Default":pathname}
+          Dashboards{" "}
+          {pathname === "/" ? (
+             <span className="font-sans font-normal text-sm leading-[20px] text-center align-middle text-[#1C1C1C] dark:text-[#FFFFFF] ">
+        / Default</span>
+          ) : (
+            <span className="font-sans font-normal text-sm leading-[20px] text-center align-middle text-[#1C1C1C] dark:text-[#FFFFFF] ">
+              {pathname}
+            </span>
+          )}
         </span>
       </div>
 
