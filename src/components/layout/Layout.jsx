@@ -6,7 +6,7 @@ import Header from "../common/Header";
 import NotificationSidebar from "../common/Notifications";
 
 function Layout() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const sidebarRef = useRef(null);
 
   useEffect(() => {

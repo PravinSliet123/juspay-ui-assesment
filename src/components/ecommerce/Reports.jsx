@@ -49,6 +49,7 @@ const chartConfig = {
     color: "var(--chart-2)",
   },
 };
+
 export default function ShadcnDashboard() {
   const { theme } = useTheme();
 
@@ -56,80 +57,83 @@ export default function ShadcnDashboard() {
   const mobileColor = theme === "dark" ? "#C6C7F8" : "#1C1C1C";
   return (
     <div className="min-h-screen py-4 text-foreground">
-      <div className="max-w-[1300px] mx-auto space-y-6">
+      <div className=" px-4 mx-auto space-y-6">
         {/* Top row */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div className="flex w-full justify-between lg:flex-row flex-col gap-4  ">
           {/* Left small cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:col-span-6 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:col-span-6 h-full w-full lg:w-1/2">
             {/* Customers */}
-            <Card className="rounded-2xl shadow-sm bg-[#E3F5FF] overflow-hidden h-full">
-              <CardContent className="p-6">
-                <p className="text-sm text-black font-medium">Customers</p>
-                <div className="mt-3 flex items-end gap-3 flex-wrap">
-                  <div className="text-3xl md:text-4xl font-extrabold text-black ">
+            <Card className="rounded-2xl shadow-sm bg-[#E3F5FF] overflow-hidden h-[112px] w-full md:w-[202px] ">
+              <CardContent className="">
+                <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
+                  Customers
+                </p>
+                <div className="mt-3 flex items-center gap-3  ">
+                  <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
                     3,781
-                  </div>
-                  <div className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="text-[13px] text-green-600 dark:text-green-400">
+                  </p>
+                  <div className="text-sm flex items-center gap-2">
+                    <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
                       +11.01%
                     </span>
-                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Orders */}
-            <Card className="rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-full">
-              <CardContent className="p-6">
-                <div className="text-sm text-muted-foreground font-medium">
+            <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
+              <CardContent className="">
+                <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
                   Orders
-                </div>
-                <div className="mt-3 flex items-end gap-3 flex-wrap">
-                  <div className="text-3xl md:text-4xl font-extrabold">
+                </p>
+                <div className="mt-3 flex items-center gap-3">
+                  <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
                     1,219
-                  </div>
-                  <div className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="text-[13px] text-destructive">-0.03%</span>
-                    <TrendingDown className="w-4 h-4 text-destructive" />
+                  </p>
+                  <div className=" flex items-center gap-2">
+                    <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
+                      -0.03%
+                    </span>
+                    <TrendingDown className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            {/* Revenue */}
-            <Card className="rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-full">
-              <CardContent className="p-6">
-                <div className="text-sm text-muted-foreground font-medium">
+            {/* Orders */}
+            <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
+              <CardContent className="">
+                <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
                   Revenue
-                </div>
-                <div className="mt-3 flex items-end gap-3 flex-wrap">
-                  <div className="text-3xl md:text-4xl font-extrabold">
+                </p>
+                <div className="mt-3 flex items-center gap-3">
+                  <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
                     $695
-                  </div>
-                  <div className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="text-[13px] text-green-600 dark:text-green-400">
+                  </p>
+                  <div className=" flex items-center gap-2">
+                    <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
                       +15.03%
                     </span>
-                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <TrendingUp className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            {/* Growth */}
-            <Card className="rounded-2xl shadow-sm bg-[#E5ECF6] overflow-hidden h-full">
-              <CardContent className="p-6">
-                <div className="text-sm text-black font-medium">Growth</div>
-                <div className="mt-3 flex items-end gap-3 flex-wrap">
-                  <div className="text-3xl md:text-4xl font-extrabold text-black ">
+            <Card className="rounded-2xl shadow-sm bg-[#E5ECF6] overflow-hidden h-[112px] w-full md:w-[202px] ">
+              <CardContent className="">
+                <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
+                  Growth
+                </p>
+                <div className="mt-3 flex items-center gap-3  ">
+                  <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
                     30.1%
-                  </div>
-                  <div className="text-sm text-muted-foreground flex items-center gap-2">
-                    <span className="text-[13px] text-green-600 dark:text-green-400">
+                  </p>
+                  <div className="text-sm flex items-center gap-2">
+                    <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
                       +6.08%
                     </span>
-                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
                   </div>
                 </div>
               </CardContent>
@@ -137,16 +141,16 @@ export default function ShadcnDashboard() {
           </div>
 
           {/* Right projection chart */}
-          <div className="lg:col-span-6 h-full">
+          <div className="lg:col-span-6 md:h-[252px] w-full lg:w-1/2 ">
             <Card className="rounded-2xl w-full shadow-sm overflow-hidden h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] ">
               <CardHeader>
-                <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0%]">
+                <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
                   Projections vs Actuals
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-6 h-full w-full">
                 <div className="h-full">
-                  <ChartContainer className={`h-full`} config={chartConfig}>
+                  <ChartContainer className={`h-full w-full`} config={chartConfig}>
                     <BarChart
                       data={chartData}
                       margin={{ top: 8, right: 0, left: 0, bottom: 6 }}
@@ -246,13 +250,13 @@ export default function ShadcnDashboard() {
         </div>
 
         {/* Larger revenue chart */}
-        <div className="flex flex-col lg:flex-row lg:gap-6 w-full">
+        <div className="flex flex-col lg:h-[318px] h-auto lg:flex-row lg:gap-6 w-full  ">
           {/* Left - Revenue Chart */}
-          <div className="lg:flex-[2] flex mb-6 lg:mb-0">
+          <div className="lg:flex-[2] w-full lg:w-[70%] flex  ">
             <Card className="rounded-2xl w-full shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] flex flex-col flex-1">
-              <CardHeader className="pb-0 px-4 sm:px-6">
+              <CardHeader className="pb-0 px-4 h-[20%]  sm:px-6">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-                  <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
+                  <CardTitle className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal pr-5 border-r-[2px] ">
                     Revenue
                   </CardTitle>
                   <div className="flex flex-wrap gap-4">
@@ -278,8 +282,8 @@ export default function ShadcnDashboard() {
                 </div>
               </CardHeader>
 
-              <CardContent className="p-0 flex-1">
-                <div className="h-64 sm:h-72 md:h-80 lg:h-full w-full p-4 sm:p-6">
+              {/* <CardContent className="p-0 flex-1"> */}
+                <div className=" h-[80%] px-4 ">
                   <ChartContainer
                     className="h-full w-full"
                     config={chartConfig}
@@ -330,40 +334,36 @@ export default function ShadcnDashboard() {
                     </ResponsiveContainer>
                   </ChartContainer>
                 </div>
-              </CardContent>
+              {/* </CardContent> */}
             </Card>
           </div>
 
           {/* Right - Revenue By Location */}
-          <div className="lg:flex-[1] flex">
-            <div className="rounded-2xl shadow-sm h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] p-6 flex flex-col w-full">
+          <div className=" md:w-full lg:mt-0 mt-4  w-full lg:w-[30%] lg:flex-[1] flex h-full ">
+            <div className="rounded-2xl shadow-sm h-full bg-[#F7F9FB] dark:bg-[#FFFFFF0D] p-6  flex flex-col w-full">
               <h2 className="text-lg font-semibold mb-4">
                 Revenue by Location
               </h2>
 
               {/* Map Section */}
-              <div className="relative w-full h-40 sm:h-52 md:h-64 lg:h-48 mb-4">
+              <div className="relative justify-center items-center flex w-full mb-4">
                 <img
                   src={"/images/WorldMap.png"}
                   alt="World Map"
-                  className="w-full h-full object-contain rounded"
+                  className=" w-[154px] h-[84px]  rounded"
                 />
-                {/* Dots */}
-                <span className="absolute w-3 h-3 bg-black rounded-full top-[25%] left-[20%]"></span>
-                <span className="absolute w-3 h-3 bg-black rounded-full top-[30%] left-[40%]"></span>
-                <span className="absolute w-3 h-3 bg-black rounded-full top-[55%] left-[75%]"></span>
-                <span className="absolute w-3 h-3 bg-black rounded-full top-[60%] left-[85%]"></span>
+               
               </div>
 
               {/* Revenue bars */}
-              <div className="space-y-4 flex-1">
+              <div className="space-y-2 flex-1">
                 {revenueData.map((item) => (
                   <div key={item.city}>
                     <div className="flex justify-between font-sans font-normal text-[12px] leading-[18px] tracking-[0%] mb-1">
                       <span>{item.city}</span>
                       <span>{Math.round(item.value / 1000)}K</span>
                     </div>
-                    <div className="h-1 w-full bg-white rounded-full">
+                    <div className="h-1 w-full bg-[#1C1C1C33] dark:bg-[#A8C5DA]/[0.5] rounded-full">
                       <div
                         className="h-1 bg-[#A8C5DA] rounded-full"
                         style={{ width: `${(item.value / maxValue) * 100}%` }}

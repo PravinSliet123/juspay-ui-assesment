@@ -24,11 +24,11 @@ export default function Header({ open, setOpen }) {
       <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
         <SidebarTrigger className="cursor-pointer" />
         <Star size={20} fill="#1C1C1C1A" className="cursor-pointer" />
-        <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal">
+        <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal dark:text-[#FFFFFF66] text-[#1C1C1C66] ">
           Dashboards
         </span>
         <span>/</span>
-        <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal text-[#1C1C1C]">
+        <span className="font-sans font-normal text-sm leading-[20px] text-center align-middle text-[#1C1C1C] dark:text-[#FFFFFF] ">
           Default
         </span>
       </div>

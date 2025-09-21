@@ -64,7 +64,7 @@ export default function NotificationSidebar({ open, setOpen }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 h-full bg-white dark:bg-black w-80 shadow-2xl border-l flex flex-col"
+            className=" lg:relative fixed top-0 right-0 h-full bg-white dark:bg-black w-80 shadow-2xl border-l flex flex-col"
           >
             {/* Header */}
             <div className="p-4 flex justify-between items-center border-b border-slate-200">
@@ -75,7 +75,7 @@ export default function NotificationSidebar({ open, setOpen }) {
             </div>
 
             {/* Scrollable content */}
-            <div className="flex-1 overflow-y-auto max-h-screen p-4 space-y-6">
+            <div className="flex-1 overflow-y-auto h-full p-4 space-y-6">
               {/* Notifications */}
               <div>
                 <h3 className="text-sm font-medium mb-3">Notifications</h3>
