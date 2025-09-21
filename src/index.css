@@ -2,7 +2,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
-
+body{
+  overflow-x: hidden;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

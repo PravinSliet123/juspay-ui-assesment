@@ -5,16 +5,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-import { X } from "lucide-react";
+import { Bug, UserRound, X } from "lucide-react";
+import { useTheme } from "../../config/theme-provider";
 
 export default function NotificationSidebar({ open, setOpen }) {
   const [notifications, setNotifications] = useState([
-    { id: 1, text: "You have a bug that needs fixing...", time: "Just now" },
-    { id: 2, text: "New user registered", time: "59 minutes ago" },
+    {
+      id: 1,
+      text: "You have a bug that needs fixing...",
+      time: "Just now",
+      icon: <Bug size={20} className=" text-black" />,
+    },
+    {
+      id: 2,
+      text: "New user registered",
+      time: "59 minutes ago",
+      icon: <UserRound size={20} className=" text-black" />,
+    },
     {
       id: 3,
       text: "You have a bug that needs fixing...",
       time: "12 hours ago",
+      icon: <Bug size={20} className=" text-black" />,
     },
   ]);
 
@@ -56,7 +68,7 @@ export default function NotificationSidebar({ open, setOpen }) {
   };
 
   return (
-    <div className="relative z-50">
+    <div className="relative z-50  ">
       <AnimatePresence>
         {open && (
           <motion.div
@@ -64,10 +76,10 @@ export default function NotificationSidebar({ open, setOpen }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className=" lg:relative fixed top-0 right-0 h-full bg-white dark:bg-black w-80 shadow-2xl border-l flex flex-col"
+            className=" lg:relative fixed top-0 right-0 h-full bg-white dark:bg-black w-80 border-l flex flex-col"
           >
             {/* Header */}
-            <div className="p-4 flex justify-between items-center border-b border-slate-200">
+            <div className="p-[11.5px] flex justify-between items-center border-b border-slate-200">
               <h2 className="font-semibold text-lg">Notifications</h2>
               <Button variant="ghost" size="sm" onClick={() => setOpen(false)}>
                 ✕
@@ -79,7 +91,7 @@ export default function NotificationSidebar({ open, setOpen }) {
               {/* Notifications */}
               <div>
                 <h3 className="text-sm font-medium mb-3">Notifications</h3>
-                <AnimatePresence>
+                <AnimatePresence className="space-y-2">
                   {notifications.map((n) => (
                     <motion.div
                       key={n.id}
@@ -87,19 +99,31 @@ export default function NotificationSidebar({ open, setOpen }) {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      whileHover={{ scale: 1.02, backgroundColor: "#F3F4F6" }}
-                      className="relative rounded-md p-3 cursor-pointer"
+                      whileHover={{
+                        scale: 1.02,
+                        // backgroundColor: {hovercolor},
+                      }}
+                      className="relative rounded-md p-3 cursor-pointer overflow-hidden hover:bg-[#F3F4F6] mt-2 hover:dark:bg-[#FFFFFF1A] "
                     >
-                      <div>{n.text}</div>
-                      <div className="text-[#6B7280] text-xs">{n.time}</div>
-                      <Button
-                        size="xs"
-                        variant="ghost"
-                        className="absolute  top-1 right-1 text-red-500 hover:bg-red-100"
-                        onClick={() => removeNotification(n.id, "notification")}
-                      >
-                        <X size={30} />
-                      </Button>
+                      <div className=" flex items-center gap-2">
+                        <div className=" bg-[#E5ECF6] rounded-lg size-[40px] flex items-center justify-center  ">
+                          {n.icon}
+                        </div>
+                        <div>
+                          <div>{n.text}</div>
+                          <div className="text-[#6B7280] text-xs">{n.time}</div>
+                          <Button
+                            size="xs"
+                            // variant="ghost"
+                            className="absolute h-full bg-[#ccc] rounded-none   top-0 right-0 cursor-pointer  "
+                            onClick={() =>
+                              removeNotification(n.id, "notification")
+                            }
+                          >
+                            <X size={30} />
+                          </Button>
+                        </div>
+                      </div>
                     </motion.div>
                   ))}
                 </AnimatePresence>
@@ -118,24 +142,33 @@ export default function NotificationSidebar({ open, setOpen }) {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      whileHover={{ scale: 1.02, backgroundColor: "#F3F4F6" }}
-                      className="relative flex gap-3 p-3 rounded-md"
+                      whileHover={{
+                        scale: 1.02,
+                        // backgroundColor: {hovercolor},
+                      }}
+                      className="relative rounded-md p-3 cursor-pointer overflow-hidden mt-2 hover:bg-[#F3F4F6] hover:dark:bg-[#FFFFFF1A] "
                     >
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback>{a.name[0]}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <div>{a.text}</div>
-                        <div className="text-[#6B7280] text-xs">{a.time}</div>
+                      <div className=" flex items-center gap-2">
+                        <Avatar className="h-8 w-8">
+                          <AvatarFallback>{a.name[0]}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                          <div>
+                            <div>{a.text}</div>
+                            <div className="text-[#6B7280] text-xs">
+                              {a.time}
+                            </div>
+                          </div>
+                          <Button
+                            size="xs"
+                            // variant="ghost"
+                            className="absolute h-full bg-[#ccc] rounded-none   top-0 right-0 cursor-pointer  "
+                            onClick={() => removeNotification(a.id, "activity")}
+                          >
+                            <X size={30} />
+                          </Button>
+                        </div>
                       </div>
-                      <Button
-                        size="xs"
-                        variant="ghost"
-                        className="absolute top-1 right-1 text-red-500 hover:bg-red-100"
-                        onClick={() => removeNotification(a.id, "activity")}
-                      >
-                        <X size={30} className=" cursor-pointer" />
-                      </Button>
                     </motion.div>
                   ))}
                 </AnimatePresence>
