@@ -6,7 +6,7 @@ import { ThemeProvider } from "./config/theme-provider.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <div className="bg-[#F7F9FB] dark:bg-[#0D1117] min-h-screen">
+  <div className=" dark:bg-[#0D1117] min-h-screen">
     <BrowserRouter>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <App />

@@ -16,6 +16,7 @@ import {
   Line,
   Area,
 } from "recharts";
+import { motion } from "framer-motion";
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 import TopSellingProducts from "./TopSellingProducts";
@@ -63,81 +64,137 @@ export default function ShadcnDashboard() {
           {/* Left small cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:col-span-6 h-full w-full lg:w-1/2">
             {/* Customers */}
-            <Card className="rounded-2xl shadow-sm bg-[#E3F5FF] overflow-hidden h-[112px] w-full md:w-[202px] ">
-              <CardContent className="">
-                <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
-                  Customers
-                </p>
-                <div className="mt-3 flex items-center gap-3  ">
-                  <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
-                    3,781
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+                rotateX: 2,
+                rotateY: 2,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+              }}
+              className="w-full md:w-[202px]"
+            >
+              <Card className="rounded-2xl shadow-sm bg-[#E3F5FF] overflow-hidden h-[112px] w-full md:w-[202px] ">
+                <CardContent className="">
+                  <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
+                    Customers
                   </p>
-                  <div className="text-sm flex items-center gap-2">
-                    <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
-                      +11.01%
-                    </span>
-                    <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
+                  <div className="mt-3 flex items-center gap-3  ">
+                    <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
+                      3,781
+                    </p>
+                    <div className="text-sm flex items-center gap-2">
+                      <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
+                        +11.01%
+                      </span>
+                      <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Orders */}
-            <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
-              <CardContent className="">
-                <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
-                  Orders
-                </p>
-                <div className="mt-3 flex items-center gap-3">
-                  <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
-                    1,219
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+                rotateX: 2,
+                rotateY: 2,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+              }}
+              className="w-full md:w-[202px]"
+            >
+              <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
+                <CardContent className="">
+                  <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
+                    Orders
                   </p>
-                  <div className=" flex items-center gap-2">
-                    <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
-                      -0.03%
-                    </span>
-                    <TrendingDown className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
+                  <div className="mt-3 flex items-center gap-3">
+                    <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
+                      1,219
+                    </p>
+                    <div className=" flex items-center gap-2">
+                      <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
+                        -0.03%
+                      </span>
+                      <TrendingDown className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
             {/* Orders */}
-            <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
-              <CardContent className="">
-                <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
-                  Revenue
-                </p>
-                <div className="mt-3 flex items-center gap-3">
-                  <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
-                    $695
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+                rotateX: 2,
+                rotateY: 2,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+              }}
+              className="w-full md:w-[202px]"
+            >
+              <Card className="bg-[#F7F9FB]rounded-2xl shadow-sm bg-[#F7F9FB] dark:bg-[#FFFFFF0D] overflow-hidden h-[112px] w-full md:w-[202px]">
+                <CardContent className="">
+                  <p className="font-inter font-semibold text-[14px] leading-[20px] tracking-normal">
+                    Revenue
                   </p>
-                  <div className=" flex items-center gap-2">
-                    <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
-                      +15.03%
-                    </span>
-                    <TrendingUp className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
+                  <div className="mt-3 flex items-center gap-3">
+                    <p className="font-inter font-semibold text-[24px] leading-[36px] tracking-normal">
+                      $695
+                    </p>
+                    <div className=" flex items-center gap-2">
+                      <span className="font-inter font-normal text-[12px] leading-[18px] tracking-normal">
+                        +15.03%
+                      </span>
+                      <TrendingUp className="font-inter size-[16px] font-normal text-[12px] leading-[18px] tracking-normal " />
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="rounded-2xl shadow-sm bg-[#E5ECF6] overflow-hidden h-[112px] w-full md:w-[202px] ">
-              <CardContent className="">
-                <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
-                  Growth
-                </p>
-                <div className="mt-3 flex items-center gap-3  ">
-                  <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
-                    30.1%
+                </CardContent>
+              </Card>
+            </motion.div>
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+                rotateX: 2,
+                rotateY: 2,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 15,
+              }}
+              className="w-full md:w-[202px]"
+            >
+              <Card className="rounded-2xl shadow-sm bg-[#E5ECF6] overflow-hidden h-[112px] w-full md:w-[202px] ">
+                <CardContent className="">
+                  <p className="font-inter font-semibold text-[14px] dark:text-[#1C1C1C] leading-[20px] tracking-normal">
+                    Growth
                   </p>
-                  <div className="text-sm flex items-center gap-2">
-                    <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
-                      +6.08%
-                    </span>
-                    <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
+                  <div className="mt-3 flex items-center gap-3  ">
+                    <p className="font-inter font-semibold dark:text-[#1C1C1C] text-[24px] leading-[36px] tracking-normal">
+                      30.1%
+                    </p>
+                    <div className="text-sm flex items-center gap-2">
+                      <span className="font-inter dark:text-[#1C1C1C] font-normal text-[12px] leading-[18px] tracking-normal">
+                        +6.08%
+                      </span>
+                      <TrendingUp className="font-inter dark:text-[#1C1C1C] font-normal size-[16px] leading-[18px] tracking-normal" />
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
 
           {/* Right projection chart */}
@@ -150,7 +207,10 @@ export default function ShadcnDashboard() {
               </CardHeader>
               <CardContent className="p-6 h-full w-full">
                 <div className="h-full">
-                  <ChartContainer className={`h-full w-full`} config={chartConfig}>
+                  <ChartContainer
+                    className={`h-full w-full`}
+                    config={chartConfig}
+                  >
                     <BarChart
                       data={chartData}
                       margin={{ top: 8, right: 0, left: 0, bottom: 6 }}
@@ -283,57 +343,54 @@ export default function ShadcnDashboard() {
               </CardHeader>
 
               {/* <CardContent className="p-0 flex-1"> */}
-                <div className=" h-[80%] px-4 ">
-                  <ChartContainer
-                    className="h-full w-full"
-                    config={chartConfig}
-                  >
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart
-                        data={chartData}
-                        margin={{ left: 12, right: 12 }}
-                      >
-                        <CartesianGrid vertical={false} stroke="#D9D9D9" />
-                        <XAxis
-                          dataKey="month"
-                          tickLine={false}
-                          axisLine={false}
-                          tickMargin={8}
-                          tickFormatter={(value) => value.slice(0, 3)}
-                          minTickGap={10}
-                          stroke="var(--muted-foreground)"
-                        />
-                        <YAxis
-                          tickLine={false}
-                          axisLine={false}
-                          tickMargin={8}
-                          tickFormatter={(value) => `${value / 10}M`}
-                          domain={[0, 300]}
-                          width={50}
-                        />
-                        <ChartTooltip
-                          cursor={false}
-                          content={<ChartTooltipContent />}
-                        />
-                        <Line
-                          dataKey="desktop"
-                          type="monotone"
-                          stroke={desktopColor}
-                          strokeWidth={2}
-                          dot={false}
-                        />
-                        <Line
-                          dataKey="mobile"
-                          type="monotone"
-                          stroke={mobileColor}
-                          strokeWidth={2}
-                          dot={false}
-                          strokeDasharray="4 4"
-                        />
-                      </LineChart>
-                    </ResponsiveContainer>
-                  </ChartContainer>
-                </div>
+              <div className=" h-[80%] px-4 ">
+                <ChartContainer className="h-full w-full" config={chartConfig}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={chartData}
+                      margin={{ left: 12, right: 12 }}
+                    >
+                      <CartesianGrid vertical={false} stroke="#D9D9D9" />
+                      <XAxis
+                        dataKey="month"
+                        tickLine={false}
+                        axisLine={false}
+                        tickMargin={8}
+                        tickFormatter={(value) => value.slice(0, 3)}
+                        minTickGap={10}
+                        stroke="var(--muted-foreground)"
+                      />
+                      <YAxis
+                        tickLine={false}
+                        axisLine={false}
+                        tickMargin={8}
+                        tickFormatter={(value) => `${value / 10}M`}
+                        domain={[0, 300]}
+                        width={50}
+                      />
+                      <ChartTooltip
+                        cursor={false}
+                        content={<ChartTooltipContent />}
+                      />
+                      <Line
+                        dataKey="desktop"
+                        type="monotone"
+                        stroke={desktopColor}
+                        strokeWidth={2}
+                        dot={false}
+                      />
+                      <Line
+                        dataKey="mobile"
+                        type="monotone"
+                        stroke={mobileColor}
+                        strokeWidth={2}
+                        dot={false}
+                        strokeDasharray="4 4"
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </ChartContainer>
+              </div>
               {/* </CardContent> */}
             </Card>
           </div>
@@ -352,7 +409,6 @@ export default function ShadcnDashboard() {
                   alt="World Map"
                   className=" w-[154px] h-[84px]  rounded"
                 />
-               
               </div>
 
               {/* Revenue bars */}

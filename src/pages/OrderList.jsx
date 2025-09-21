@@ -21,6 +21,8 @@ import {
   Calendar,
   Search,
   Trash2,
+  ListFilterPlus,
+  ArrowDownUp,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -40,6 +42,7 @@ import { Label } from "@/components/ui/label";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Magnetic from "../components/common/Magnetic/Magnetic";
 
 const initialOrders = [
   {
@@ -204,14 +207,12 @@ export default function OrderList() {
       </h1>
 
       {/* Toolbar */}
-      <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between gap-4 mb-4 flex-wrap bg-[#F7F9FB] dark:bg-[#FFFFFF0D] rounded-md  p-2 ">
+        <div className="flex items-center gap-2 ">
           {/* Add Order Dialog */}
           <Dialog open={isAddOpen} onOpenChange={setIsAddOpen}>
             <DialogTrigger asChild>
-              <Button size="sm">
-                <Plus className="w-4 h-4 mr-2" /> Add
-              </Button>
+              <Plus className="w-4 h-4 mr-2 cursor-pointer" />
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -250,9 +251,11 @@ export default function OrderList() {
           {/* Filter Dialog */}
           <Dialog open={isFilterOpen} onOpenChange={setIsFilterOpen}>
             <DialogTrigger asChild>
-              <Button size="sm" variant="outline">
-                <Filter className="w-4 h-4" />
-              </Button>
+              <Magnetic>
+                <div>
+                  <ListFilterPlus size={20} className=" cursor-pointer " />
+                </div>
+              </Magnetic>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -265,23 +268,28 @@ export default function OrderList() {
             </DialogContent>
           </Dialog>
 
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => setSortAsc((s) => !s)}
-          >
-            <ArrowUpDown className="w-4 h-4" />
-          </Button>
+          <Magnetic>
+            <div>
+              <ArrowDownUp
+                onClick={() => setSortAsc((s) => !s)}
+                className="w-4 h-4  cursor-pointer "
+              />
+            </div>
+          </Magnetic>
 
           {selected.length > 0 && (
-            <Button
-              size="sm"
-              variant="destructive"
-              onClick={deleteSelected}
-              className="ml-2"
-            >
-              <Trash2 className="w-4 h-4 mr-1" /> Delete ({selected.length})
-            </Button>
+            <Magnetic>
+              <div>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={deleteSelected}
+                  className="ml-2"
+                >
+                  <Trash2 className="w-4 h-4 mr-1" /> Delete ({selected.length})
+                </Button>
+              </div>
+            </Magnetic>
           )}
         </div>
 
@@ -289,7 +297,8 @@ export default function OrderList() {
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search"
-            className="pl-8"
+            className="pl-8  rounded-xl"
+            
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);

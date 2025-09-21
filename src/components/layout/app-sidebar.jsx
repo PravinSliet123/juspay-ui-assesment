@@ -154,10 +154,10 @@ export function AppSidebar() {
         {/* Favorites */}
         <SidebarGroup>
           <div className="flex items-center gap-4">
-            <SidebarGroupLabel className="font-inter text-[14px] leading-[20px]">
+            <SidebarGroupLabel className="font-sans font-normal text-sm leading-[20px] tracking-normal text-center align-middle text-[#1C1C1C66] dark:text-[#FFFFFF66]  ">
               Favorites
             </SidebarGroupLabel>
-            <SidebarGroupLabel className="font-inter text-[14px] leading-[20px] text-foreground/50">
+            <SidebarGroupLabel className="font-sans font-normal text-sm leading-[20px] tracking-normal text-center align-middle text-[#1C1C1C33] dark:text-[#FFFFFF33] ">
               Recently
             </SidebarGroupLabel>
           </div>
@@ -167,7 +167,7 @@ export function AppSidebar() {
                 <NavLink key={i}>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <span className="pl-4 relative before:absolute before:size-2 before:bg-accent-foreground/50 before:rounded-full before:top-1/2 before:-translate-y-1/2 before:left-[1px]">
+                      <span className="pl-4 relative font-sans font-normal text-sm leading-[20px] tracking-normal before:absolute before:size-2 before:bg-accent-foreground/50 before:rounded-full before:top-1/2 before:-translate-y-1/2 before:left-[1px]">
                         {item}
                       </span>
                     </SidebarMenuButton>
@@ -180,7 +180,7 @@ export function AppSidebar() {
 
         {/* Dashboard Section */}
         <SidebarGroup>
-          <SidebarGroupLabel className="font-inter text-[14px] leading-[20px] text-foreground/50">
+          <SidebarGroupLabel className="font-sans font-normal text-sm leading-[20px] tracking-normal text-[#1C1C1C66] dark:text-[#FFFFFF66] ">
             Dashboards
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -202,7 +202,7 @@ export function AppSidebar() {
                             isActive={isActive}
                             className={
                               isActive
-                                ? "before:absolute before:h-[70%] before:w-1 before:bg-accent-foreground/90 before:rounded-md before:top-1/2 before:-translate-y-1/2 before:left-[1px]"
+                                ? "  before:absolute before:h-[70%] before:w-1 before:bg-accent-foreground/90 before:rounded-md before:top-1/2 before:-translate-y-1/2 before:left-[1px]"
                                 : ""
                             }
                           >
@@ -210,7 +210,7 @@ export function AppSidebar() {
                             <ChevronRight className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
 
                             {item.icon}
-                            <span className="font-inter text-[14px] leading-[20px]">
+                            <span className="font-sans font-normal text-sm leading-[20px] tracking-normal">
                               {item.title}
                             </span>
                           </SidebarMenuButton>
@@ -238,12 +238,12 @@ export function AppSidebar() {
                         isActive={isActive}
                         className={
                           isActive
-                            ? "before:absolute before:h-[70%] before:w-1 before:bg-accent-foreground/90 before:rounded-md before:top-1/2 before:-translate-y-1/2 before:left-[1px]"
+                            ? "before:absolute bg-[#b20e0ed7] before:h-[70%] before:w-1 before:bg-accent-foreground/90 before:rounded-md before:top-1/2 before:-translate-y-1/2 before:left-[1px]"
                             : ""
                         }
                       >
                         {item.icon}
-                        <span className="font-inter text-[14px] leading-[20px]">
+                        <span className="font-sans font-normal text-sm leading-[20px] tracking-normal">
                           {item.title}
                         </span>
                       </SidebarMenuButton>
@@ -285,7 +285,7 @@ export function AppSidebar() {
                             <ChevronRight className="transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
 
                             {item.icon}
-                            <span className="font-inter text-[14px] leading-[20px]">
+                            <span className="font-sans font-normal text-sm leading-[20px] tracking-normal">
                               {item.title}
                             </span>
                           </SidebarMenuButton>
@@ -318,7 +318,7 @@ export function AppSidebar() {
                         }
                       >
                         {item.icon}
-                        <span className="font-inter text-[14px] leading-[20px]">
+                        <span className="font-sans font-normal text-sm leading-[20px] tracking-normal">
                           {item.title}
                         </span>
                       </SidebarMenuButton>

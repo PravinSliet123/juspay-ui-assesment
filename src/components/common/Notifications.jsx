@@ -87,7 +87,7 @@ export default function NotificationSidebar({ open, setOpen }) {
             </div>
 
             {/* Scrollable content */}
-            <div className="flex-1 overflow-y-auto h-full p-4 space-y-6">
+            <div className="flex-1 overflow-y-auto h-full p-4 space-y-6 max-h-screen scroll-hidden ">
               {/* Notifications */}
               <div>
                 <h3 className="text-sm font-medium mb-3">Notifications</h3>

@@ -5,6 +5,7 @@ import { Bell, RotateCw, Star, Sun } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SidebarTrigger } from "../ui/sidebar";
 import { useTheme } from "../../config/theme-provider";
+import Magnetic from "./Magnetic/Magnetic";
 
 export default function Header({ open, setOpen }) {
   const { setTheme, theme } = useTheme();
@@ -19,11 +20,19 @@ export default function Header({ open, setOpen }) {
   return (
     <nav className="sticky top-0 z-10 flex items-center justify-between w-full border-b px-4 h-14 bg-background">
       {/* Left Section - Breadcrumb (desktop only) */}
-                {/* Sidebar Trigger for mobile */}
-          <SidebarTrigger className="cursor-pointer md:hidden" />
+      {/* Sidebar Trigger for mobile */}
+      <SidebarTrigger className="cursor-pointer md:hidden" />
       <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-        <SidebarTrigger className="cursor-pointer" />
-        <Star size={20} fill="#1C1C1C1A" className="cursor-pointer" />
+        <Magnetic>
+          <div>
+            <SidebarTrigger className="cursor-pointer" />
+          </div>
+        </Magnetic>
+        <Magnetic>
+          <div>
+            <Star size={20} fill="#1C1C1C1A" className="cursor-pointer" />
+          </div>
+        </Magnetic>
         <span className="font-inter font-normal text-[14px] leading-[20px] tracking-normal dark:text-[#FFFFFF66] text-[#1C1C1C66] ">
           Dashboards
         </span>
@@ -50,34 +59,44 @@ export default function Header({ open, setOpen }) {
         {/* Icons */}
         <div className="flex items-center gap-2 md:gap-3">
           {/* Theme Toggle */}
-          <Sun
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            size={20}
-            className={`cursor-pointer ${
-              theme === "light" ? "rotate-180" : "rotate-0"
-            } transition-all duration-500`}
-          />
+          <Magnetic>
+            <div>
+              <Sun
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                size={20}
+                className={`cursor-pointer ${
+                  theme === "light" ? "rotate-180" : "rotate-0"
+                } transition-all duration-500`}
+              />
+            </div>
+          </Magnetic>
 
           {/* Refresh */}
-          <RotateCw
-            onClick={handleRefresh}
-            size={20}
-            className={`cursor-pointer transition-transform duration-500 ${
-              refreshing ? "animate-spin" : ""
-            }`}
-          />
+          <Magnetic>
+            <div>
+              <RotateCw
+                onClick={handleRefresh}
+                size={20}
+                className={`cursor-pointer transition-transform duration-500 ${
+                  refreshing ? "animate-spin" : ""
+                }`}
+              />
+            </div>
+          </Magnetic>
 
           {/* Notifications */}
-          <Bell
-            onClick={(e) => {
-              e.stopPropagation();
-              setOpen(!open);
-            }}
-            size={20}
-            className="cursor-pointer"
-          />
-
-
+          <Magnetic>
+            <div>
+              <Bell
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(!open);
+                }}
+                size={20}
+                className="cursor-pointer"
+              />
+            </div>
+          </Magnetic>
         </div>
       </div>
     </nav>
